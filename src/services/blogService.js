@@ -1,5 +1,9 @@
 
 // Mock data mimicking a Headless CMS response (Strapi/Contentful)
+import img1 from '../assets/blog/pexels-mikhail-nilov-6707163.jpg';
+import img2 from '../assets/blog/pexels-matilda-wormwood-4099467.jpg';
+import img3 from '../assets/blog/pexels-artempodrez-5726794.jpg';
+
 const posts = [
     {
         id: 1,
@@ -22,7 +26,7 @@ const posts = [
 
             <p>As healthcare facilities strive for zero-harm environments, AHP® stands out as the only technology that delivers on both efficacy and safety promises.</p>
         `,
-        image: 'https://images.unsplash.com/photo-1584036561566-b93a901dbd1d?auto=format&fit=crop&q=80&w=800',
+        image: img1,
         author: 'Dr. Sarah Chen, PhD',
         date: 'Oct 12, 2023',
         readTime: '5 min read'
@@ -47,7 +51,7 @@ const posts = [
             <h3>Why This Matters</h3>
             <p>Eliminating the need for PPE not only cuts costs but also increases compliance. Staff are more likely to wipe down surfaces frequently if they don't have to don gloves and masks every single time. This directly leads to better infection control outcomes.</p>
         `,
-        image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1cca?auto=format&fit=crop&q=80&w=800',
+        image: img2,
         author: 'Mark Thompson, Infection Preventionist',
         date: 'Nov 05, 2023',
         readTime: '4 min read'
@@ -72,7 +76,7 @@ const posts = [
 
             <p>By switching to a compatible chemistry, facilities can extend the life of their capital equipment and reduce maintenance costs significantly.</p>
         `,
-        image: 'https://images.unsplash.com/photo-1516549655169-df83a092dd96?auto=format&fit=crop&q=80&w=800',
+        image: img3,
         author: 'Solera Technical Team',
         date: 'Dec 01, 2023',
         readTime: '3 min read'

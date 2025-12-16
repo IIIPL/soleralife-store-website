@@ -15,9 +15,10 @@ import productImg from './assets/intervention-wipes-1.jpg';
 
 function App() {
     const [cart, setCart] = useState([]);
-    const [isIndia, setIsIndia] = useState(false);
+    const [isIndia, setIsIndia] = useState(true); // Forced to India (INR)
 
-    // Initial Load - Check Geo
+    // Geo-detection removed to force INR everywhere
+    /*
     useEffect(() => {
         fetch('https://ipapi.co/json/')
             .then(res => res.json())
@@ -26,6 +27,7 @@ function App() {
             })
             .catch(err => console.error("Geo-detect failed", err));
     }, []);
+    */
 
     const addToCart = (qty) => {
         // Since we only have one product for now
@@ -33,7 +35,7 @@ function App() {
             id: 'int-wipes-160',
             name: 'Accel INTERVention Disinfectant Wipes',
             spec: '160 Wipes / Canister',
-            price: isIndia ? 2000 : 29.99,
+            price: isIndia ? 1200 : 29.99,
             quantity: qty,
             image: productImg
         };
