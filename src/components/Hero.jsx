@@ -30,9 +30,6 @@ const Hero = () => {
                             <Link to="/products/accel-wipes" className="btn btn-primary btn-lg" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
                                 Buy Now <ArrowRight size={20} className="icon-right" />
                             </Link>
-                            <button className="btn btn-text">
-                                View Specs
-                            </button>
                         </div>
                         <div className="hero-trust">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa" className="payment-icon" />

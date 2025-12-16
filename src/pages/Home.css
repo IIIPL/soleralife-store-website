@@ -1,5 +1,10 @@
 /* Home.css */
 
+/* Default: Hide Product Teaser on Desktop (as per user request "remove this") */
+.section-product-teaser {
+  display: none;
+}
+
 /* Mobile First Approach for Flexbox Reordering */
 @media (max-width: 768px) {
   main {
@@ -7,22 +12,13 @@
     flex-direction: column;
   }
 
-  /* 
-     Default order is 0. 
-     We want ProductTeaser to be higher up.
-     Order references:
-     Hero: 1 (or default)
-     Stats: 3
-     Technology: 4
-     ProductTeaser: 2 (We want this second)
-     Wholesale: 5
-  */
-
-  /* Explicitly setting order/classes requires the components to be wrapped or identified 
-     In Home.jsx we will add classes to the sections/components.
+  /*
+     On mobile, we SHOW the product teaser and put it first.
   */
 
   .section-product-teaser {
+    display: block;
+    /* Show on mobile */
     order: 1;
     margin-top: 0;
     margin-bottom: 24px;

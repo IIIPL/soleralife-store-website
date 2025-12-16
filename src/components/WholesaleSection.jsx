@@ -16,8 +16,27 @@ const WholesaleSection = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Thank you for your inquiry. Our B2B team will contact you shortly.');
-        setFormData({ name: '', email: '', company: '', quantity: '', message: '' });
+
+        const subject = `Wholesale Inquiry from ${formData.name}`;
+        const body = `
+Name: ${formData.name}
+Company: ${formData.company}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Country: ${formData.country}
+End Use: ${formData.endUse}
+Quantity: ${formData.quantity}
+Message: ${formData.message}
+        `.trim();
+
+        // Construct mailto link
+        const mailtoLink = `mailto:Info@Soleralife.Store?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+
+        // Optional: Reset form or show success message after a delay
+        // setFormData({ name: '', email: '', company: '', quantity: '', message: '' });
     };
 
     return (
