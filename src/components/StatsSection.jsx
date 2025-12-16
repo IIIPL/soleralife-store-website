@@ -6,7 +6,7 @@ import './StatsSection.css';
 const stats = [
     {
         icon: <Clock size={32} />,
-        value: "30 Sec",
+        value: "60 Sec",
         label: "Sanitizer",
         desc: "Rapid sanitization for non-critical areas"
     },

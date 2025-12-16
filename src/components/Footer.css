@@ -45,10 +45,17 @@
 
 .contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     color: #999;
     margin-bottom: 12px;
+}
+
+.contact-item svg,
+.contact-item .whatsapp-icon {
+    flex-shrink: 0;
+    margin-top: 4px;
+    /* visually align with the first line of text */
 }
 
 .footer-payment .payment-icons {
@@ -58,7 +65,9 @@
 }
 
 .footer-payment img {
-    height: 24px;
+    height: 32px;
+    width: 50px;
+    object-fit: contain;
     background: white;
     padding: 2px 4px;
     border-radius: 4px;

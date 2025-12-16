@@ -99,8 +99,8 @@ const ProductDetail = ({ onAddToCart, isIndia: isIndiaProp, headingLevel = 'h1' 
                             <div className="spec-item">
                                 <h4>Efficacy</h4>
                                 <ul>
-                                    <li><strong>1 Min Kill:</strong> MRSA, VRE, Norovirus, TB, C. diff</li>
-                                    <li><strong>30 Sec:</strong> Sanitizer</li>
+                                    <li><strong>1 Min:</strong> Kill Time (TB, Norovirus)</li>
+                                    <li><strong>60 Sec:</strong> Sanitizer</li>
                                     <li><strong>Type:</strong> Broad-Spectrum Oxidizer</li>
                                 </ul>
                             </div>

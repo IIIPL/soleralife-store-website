@@ -7,16 +7,12 @@ const AboutUs = () => {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Solera Life Sciences",
-        "url": "https://soleralife.com",
-        "logo": "https://soleralife.com/logo.png",
-        "founder": {
-            "@type": "Person",
-            "name": "Manish Kothary"
-        },
+        "url": "https://soleralife.store",
+        "logo": "https://soleralife.store/logo.png",
         "description": "Leading provider of advanced infection prevention solutions like Accelerated Hydrogen Peroxide (AHP®).",
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+91-9958966881",
+            "email": "Info@Soleralife.Store",
             "contactType": "sales",
             "areaServed": ["IN", "CA", "US"],
             "availableLanguage": "English"
@@ -27,8 +23,8 @@ const AboutUs = () => {
         <>
             <SEO
                 title="About Us - Solera Life Sciences"
-                description="Solera Life Sciences, led by Manish Kothary, brings hospital-grade infection prevention technologies to homes and businesses."
-                canonical="https://soleralife.com/about-us"
+                description="Solera Life Sciences brings hospital-grade infection prevention technologies to homes and businesses."
+                canonical="https://soleralife.store/about-us"
                 schema={orgSchema}
             />
             <main style={{ paddingTop: '100px' }} className="container">
@@ -52,12 +48,10 @@ const AboutUs = () => {
                         </p>
                     </div>
                     <div style={{ backgroundColor: '#f9f9f9', padding: '40px', borderRadius: '12px' }}>
-                        <h3 style={{ marginBottom: '15px' }}>Leadership</h3>
-                        <p style={{ fontSize: '1.1rem', fontWeight: '600' }}>Manish Kothary</p>
-                        <p style={{ color: '#666', marginBottom: '20px' }}>Founder & CEO</p>
+                        <h3 style={{ marginBottom: '15px' }}>Our Team</h3>
                         <p style={{ fontSize: '0.95rem', color: '#555' }}>
-                            With over 20 years of experience in the healthcare supply chain, Manish brings a rigorous focus on
-                            quality assurance and regulatory compliance.
+                            With decades of experience in the healthcare supply chain, our team brings a rigorous focus on
+                            quality assurance and regulatory compliance to ensure you have access to the best infection prevention solutions.
                         </p>
                     </div>
                 </section>

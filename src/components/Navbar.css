@@ -103,10 +103,38 @@
 
 @media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        /* Below navbar */
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        padding: 24px;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
     }
 
     .mobile-menu-btn {
         display: block;
+    }
+
+    .mobile-backdrop {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
     }
 }

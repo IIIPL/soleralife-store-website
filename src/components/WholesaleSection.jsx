@@ -27,14 +27,14 @@ const WholesaleSection = () => {
                     <div className="wholesale-info">
                         <h2>Wholesale & Bulk Orders</h2>
                         <p>
-                            Direct supply from Solera Life Sciences Pvt. Ltd. (Importer of Diversey products).
+                            Direct supply from Solera Life Sciences Pvt. Ltd.
                             <strong>Minimum Order: 5 Cartons (60 Tubs).</strong>
                         </p>
                         <ul className="wholesale-list">
                             <li>Direct Factory Pricing</li>
-                            <li>Warehouse: A-37A, 2nd Floor, Ashokpura, New Sanganer Road, Jaipur, Rajasthan 302018</li>
+                            {/* Warehouse locations removed */}
                             <li>Imported from Canada | Manufactured by Diversey, Inc.</li>
-                            <li>Contact: Manish Kothary (+91 9958966881) | manish@benellc.com</li>
+                            <li>Email: Info@Soleralife.Store</li>
                         </ul>
                     </div>
 
