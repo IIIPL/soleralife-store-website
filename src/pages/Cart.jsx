@@ -22,7 +22,7 @@ const Cart = ({ cartItems, updateQuantity, removeFromCart, total, isIndia }) => 
 
     const handleCheckout = () => {
         if (isIndia) {
-            alert(`BANK TRANSFER DETAILS:\n\nAccount Name: SOLERA LIFE SCIENCES PVT. LTD.\nBank: IndusInd Bank\nA/C No: 201000630495\nIFSC: INDB0000148\nBranch: Lajpat Nagar, New Delhi\n\nPlease transfer ₹${finalTotal} (incl 18% GST) and share screenshot to +91 9958966881`);
+            alert(`BANK TRANSFER DETAILS:\n\nAccount Name: SOLERA LIFE SCIENCES PVT. LTD.\nBank: IndusInd Bank\nA/C No: 201000630495\nIFSC: INDB0000148\nBranch: Lajpat Nagar, New Delhi\n\nPlease transfer ₹${finalTotal} (incl 18% GST) and share screenshot to Info@Soleralife.Store`);
         } else {
             alert("Redirecting to Secure Payment Gateway...");
         }

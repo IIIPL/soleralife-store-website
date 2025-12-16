@@ -7,6 +7,8 @@ import TechnologySection from '../components/TechnologySection';
 import ProductTeaser from '../components/ProductTeaser';
 import WholesaleSection from '../components/WholesaleSection';
 
+import './Home.css';
+
 const Home = ({ onAddToCart, isIndia }) => {
     const { hash } = useLocation();
 
@@ -34,12 +36,22 @@ const Home = ({ onAddToCart, isIndia }) => {
                     "description": "Importer and distributor of hospital-grade infection prevention solutions like Accel INTERVention Wipes."
                 }}
             />
-            <main>
-                <Hero />
-                <StatsSection />
-                <TechnologySection />
-                <ProductTeaser isIndia={isIndia} />
-                <WholesaleSection />
+            <main className="home-main">
+                <div className="section-hero">
+                    <Hero />
+                </div>
+                <div className="section-stats">
+                    <StatsSection />
+                </div>
+                <div className="section-technology">
+                    <TechnologySection />
+                </div>
+                <div className="section-product-teaser">
+                    <ProductTeaser isIndia={isIndia} />
+                </div>
+                <div className="section-wholesale">
+                    <WholesaleSection />
+                </div>
             </main>
         </>
     );

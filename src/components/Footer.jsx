@@ -2,13 +2,15 @@ import React from 'react';
 import './Footer.css';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
+import logoImg from '../assets/logo.png';
+
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-grid">
                     <div className="footer-brand">
-                        <h3 className="footer-logo">Solera<span className="logo-highlight">Life</span></h3>
+                        <img src={logoImg} alt="Solera Life Sciences" className="footer-logo-img" style={{ height: '40px', marginBottom: '16px' }} />
                         <p>Providing clinical-grade infection prevention solutions for homes and businesses.</p>
                     </div>
 
@@ -27,14 +29,16 @@ const Footer = () => {
                             <span>
                                 <strong>Solera Life Sciences Pvt. Ltd.</strong><br />
                                 124, Uday Park, New Delhi, 110049<br />
-                                Warehouse: Jaipur, Rajasthan
                             </span>
                         </div>
+                        {/* Phone number removed as per request */}
                         <div className="contact-item">
-                            <Phone size={16} /> <span>+91 99589 66881</span>
+                            <Mail size={16} /> <span>Info@Soleralife.Store</span>
                         </div>
                         <div className="contact-item">
-                            <Mail size={16} /> <span>soleralife2020@gmail.com</span>
+                            <a href="https://wa.me/919958966881" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', color: 'inherit', textDecoration: 'none' }}>
+                                <Phone size={16} /> <span>WhatsApp</span>
+                            </a>
                         </div>
                     </div>
 
@@ -50,7 +54,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom">
-                    <p>© {new Date().getFullYear()} Solera Life Store. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} Solera Life Sciences. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -1,0 +1,46 @@
+/* Home.css */
+
+/* Mobile First Approach for Flexbox Reordering */
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 
+     Default order is 0. 
+     We want ProductTeaser to be higher up.
+     Order references:
+     Hero: 1 (or default)
+     Stats: 3
+     Technology: 4
+     ProductTeaser: 2 (We want this second)
+     Wholesale: 5
+  */
+
+  /* Explicitly setting order/classes requires the components to be wrapped or identified 
+     In Home.jsx we will add classes to the sections/components.
+  */
+  
+  .section-hero {
+    order: 1;
+  }
+
+  .section-product-teaser {
+    order: 2;
+    margin-top: 24px; /* Add some space since it's moving up */
+    margin-bottom: 24px;
+  }
+
+  .section-stats {
+    order: 3;
+  }
+
+  .section-technology {
+    order: 4;
+  }
+
+  .section-wholesale {
+    order: 5;
+  }
+}
