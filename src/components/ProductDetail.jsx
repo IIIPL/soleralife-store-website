@@ -62,7 +62,7 @@ const ProductDetail = ({ onAddToCart, isIndia: isIndiaProp, headingLevel = 'h1' 
                         <img src={activeImg} alt="Accel INTERVention Wipes" />
                     </div>
                     <div className="thumbnails-scroll-container">
-                        <div className="thumbnails">
+                        <div className={`thumbnails ${showAllImages ? 'expanded' : ''}`}>
                             {visibleImages.map((img, index) => (
                                 <div
                                     key={index}
