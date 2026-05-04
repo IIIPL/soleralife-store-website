@@ -4,19 +4,20 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Products - Solera Life Sciences</title>
+<meta name="description" content="Trusted pharmaceutical solutions for better health"/>
 <link rel="icon" href="assets/icons/favicon.ico"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <link rel="stylesheet" href="assets/css/home-core.css"/>
 <link rel="stylesheet" href="assets/css/footer.css"/>
 <style>
-/* â”€â”€ Base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Base --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#030703;color:#e8f5e1;font-family:'Plus Jakarta Sans','Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#92de4a44;border-radius:3px}
 a{color:inherit;text-decoration:none}
 
-/* â”€â”€ Navbar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Navbar ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(8,14,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(146,222,74,.1)}
 .navbar.up{background:rgba(8,14,5,.98)}
 .nav-logo{display:flex;align-items:center}
@@ -36,7 +37,7 @@ a{color:inherit;text-decoration:none}
 .mob-nav a:last-child{border-bottom:none}
 .mob-nav a:hover,.mob-nav a.active{color:#92de4a}
 
-/* â”€â”€ Video Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Video Hero --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .vhero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .vhero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .vhero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,14,5,.85) 0%,rgba(8,14,5,.5) 60%,rgba(8,14,5,.75) 100%)}
@@ -51,13 +52,13 @@ a{color:inherit;text-decoration:none}
 .vhero-scroll-line{width:1px;height:40px;background:linear-gradient(#92de4a,transparent);animation:scrollPulse 2s ease infinite}
 @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
 
-/* â”€â”€ Stats bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Stats bar ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .stats-bar{background:rgba(146,222,74,.04);border-top:1px solid rgba(146,222,74,.1);border-bottom:1px solid rgba(146,222,74,.1);padding:1.8rem 6%;display:flex;justify-content:center;gap:5rem;flex-wrap:wrap}
 .stat{text-align:center}
 .stat-n{font-size:2rem;font-weight:900;color:#92de4a;line-height:1}
 .stat-l{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#555;margin-top:.3rem;font-weight:600}
 
-/* â”€â”€ Controls â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Controls --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .controls{position:sticky;top:64px;z-index:100;background:rgba(8,14,5,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(146,222,74,.08);padding:1.1rem 6%}
 .search-row{display:flex;gap:1rem;align-items:center;margin-bottom:.9rem}
 .search-box{position:relative;flex:1;max-width:420px}
@@ -72,13 +73,13 @@ a{color:inherit;text-decoration:none}
 .ctab:hover{border-color:rgba(146,222,74,.35);color:#ccc}
 .ctab.on{background:rgba(146,222,74,.14);border-color:#92de4a;color:#92de4a}
 
-/* â”€â”€ Product grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Product grid --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .grid-wrap{padding:2.5rem 6% 6rem}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
 .no-res{text-align:center;padding:5rem;color:#444}
 .no-res i{font-size:3rem;display:block;margin-bottom:1rem;color:#222}
 
-/* â”€â”€ Card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Card --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .pcard{background:#060c04;border:1px solid rgba(146,222,74,.09);border-radius:20px;overflow:hidden;cursor:pointer;opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease,border-color .2s,box-shadow .2s}
 .pcard.vis{opacity:1;transform:none}
 .pcard:hover{border-color:rgba(146,222,74,.28);box-shadow:0 12px 40px rgba(0,0,0,.45)}
@@ -97,7 +98,7 @@ a{color:inherit;text-decoration:none}
 .pcard-arrow{width:32px;height:32px;border-radius:50%;background:rgba(146,222,74,.1);border:1px solid rgba(146,222,74,.25);display:flex;align-items:center;justify-content:center;color:#92de4a;font-size:.8rem;transition:all .2s}
 .pcard:hover .pcard-arrow{background:rgba(146,222,74,.2);border-color:#92de4a;transform:translateX(3px)}
 
-/* â”€â”€ Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Modal ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);z-index:1000;align-items:center;justify-content:center;padding:1rem}
 .overlay.open{display:flex}
 .modal{background:#060c04;border:1px solid rgba(146,222,74,.18);border-radius:24px;width:100%;max-width:660px;max-height:92vh;overflow-y:auto;animation:mPop .28s ease;position:relative;scroll-behavior:smooth}
@@ -137,20 +138,10 @@ a{color:inherit;text-decoration:none}
 .m-gthumb.on{border-color:#92de4a;opacity:1}
 .m-gthumb img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* ── Animations â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Animations ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 @keyframes fUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-/* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.footer{background:#020402;border-top:1px solid rgba(146,222,74,.07);padding:2.5rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.2rem}
-.footer-brand{display:flex;align-items:center;gap:.6rem}
-.footer-brand img{height:30px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px rgba(0,0,0,.8)) drop-shadow(0 1px 2px rgba(0,0,0,.45));opacity:1;background:transparent}
-.footer-brand span{font-size:.8rem;color:#444;font-weight:700;letter-spacing:1px}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{color:#444;font-size:.9rem;font-weight:600;transition:color .2s}
-.footer-links a:hover{color:#92de4a}
-.footer-copy{font-size:.84rem;color:#455240;width:100%;text-align:center;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.04)}
-
-/* â”€â”€ Mobile â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ------ Mobile --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 @media(max-width:900px){
   .nav-links{display:none}.ham{display:flex}
   .controls{top:4rem}
@@ -180,20 +171,6 @@ a{color:inherit;text-decoration:none}
 @media(max-width:380px){
   .pgrid{grid-template-columns:1fr}
 }
-/* ── Footer — exact copy from home page ────────────────────────── */
-footer.footer{background:#080f07;padding:3rem 6% 1.5rem;border-top:1px solid rgba(146,222,74,.08)}
-.footer-container{display:flex;flex-wrap:wrap;gap:2rem;align-items:flex-start;justify-content:space-between;max-width:1400px;margin:0 auto}
-.footer-logo img{height:52px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(146,222,74,.18))}
-.additionalinfo{font-size:.85rem;color:#667760;line-height:1.8}
-.footer-nav{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.5rem}
-.footer-nav a{color:#667760;text-decoration:none;font-size:.88rem;transition:color .2s}
-.footer-nav a:hover{color:#92de4a}
-.footer-social{display:flex;gap:.9rem;margin-top:.8rem}
-.footer-social a{color:#667760;font-size:1.1rem;text-decoration:none;transition:color .2s}
-.footer-social a:hover{color:#92de4a}
-.tight-text-container{width:100%;overflow:hidden;text-align:center;margin:1.5rem 0 0}
-.tight-text{font-size:clamp(3rem,10vw,8rem);font-weight:900;letter-spacing:-.04em;color:rgba(146,222,74,.04);line-height:1;white-space:nowrap;display:block}
-.footer-bottom{width:100%;text-align:center;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem;color:#44534a;margin-top:.5rem}
 </style>
 </head>
 <body>
