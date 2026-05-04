@@ -1,0 +1,26 @@
+<svg width="587" height="500" viewBox="0 0 587 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="paint0_linear_2382_2300" x1="5.5473" y1="351.552" x2="584.818" y2="351.66" gradientUnits="userSpaceOnUse">
+<stop stop-color="#719C31"/>
+<stop offset="1" stop-color="#566D38"/>
+</linearGradient>
+<style>
+.svg-fill{opacity:0;animation:fillFade 1s ease .1s forwards}
+.svg-line{stroke-dasharray:1100;stroke-dashoffset:1100;animation:drawLine 1.8s cubic-bezier(.4,0,.2,1) .2s forwards}
+.svg-dot{opacity:0;transform-box:fill-box;transform-origin:center;animation:dotPop .35s ease forwards}
+@keyframes fillFade{from{opacity:0}to{opacity:1}}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+@keyframes dotPop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+</style>
+</defs>
+<path class="svg-fill" d="M523.863 213.875L585 269.596V500H3V1.70996L108.366 85.7061C167.673 132.985 243.243 154.945 318.652 146.815C393.503 138.745 468.221 163.162 523.863 213.875Z" fill="url(#paint0_linear_2382_2300)"/>
+<path class="svg-line" d="M585 269.596L523.863 213.875C468.221 163.162 393.503 138.745 318.652 146.815V146.815V146.815C243.243 154.945 167.673 132.985 108.366 85.7061L3 1.70996" stroke="#72FF7C" stroke-width="3" stroke-linejoin="bevel"/>
+<path class="svg-dot" style="animation-delay:.80s" d="M573 256.5C570.515 256.5 568.5 258.515 568.5 261C568.5 263.485 570.515 265.5 573 265.5C575.485 265.5 577.5 263.485 577.5 261C577.5 258.515 575.485 256.5 573 256.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:.90s" d="M519 207.5C516.515 207.5 514.5 209.515 514.5 212C514.5 214.485 516.515 216.5 519 216.5C521.485 216.5 523.5 214.485 523.5 212C523.5 209.515 521.485 207.5 519 207.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.20s" d="M220 136.5C217.515 136.5 215.5 138.515 215.5 141C215.5 143.485 217.515 145.5 220 145.5C222.485 145.5 224.5 143.485 224.5 141C224.5 138.515 222.485 136.5 220 136.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.40s" d="M129 96.5C126.515 96.5 124.5 98.5147 124.5 101C124.5 103.485 126.515 105.5 129 105.5C131.485 105.5 133.5 103.485 133.5 101C133.5 98.5147 131.485 96.5 129 96.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.10s" d="M320 142.5C317.515 142.5 315.5 144.515 315.5 147C315.5 149.485 317.515 151.5 320 151.5C322.485 151.5 324.5 149.485 324.5 147C324.5 144.515 322.485 142.5 320 142.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.00s" d="M421 151.5C418.515 151.5 416.5 153.515 416.5 156C416.5 158.485 418.515 160.5 421 160.5C423.485 160.5 425.5 158.485 425.5 156C425.5 153.515 423.485 151.5 421 151.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.55s" d="M65 47.5C62.5147 47.5 60.5 49.5147 60.5 52C60.5 54.4853 62.5147 56.5 65 56.5C67.4853 56.5 69.5 54.4853 69.5 52C69.5 49.5147 67.4853 47.5 65 47.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+<path class="svg-dot" style="animation-delay:1.70s" d="M5 0.5C2.51472 0.5 0.5 2.51472 0.5 5C0.5 7.48528 2.51472 9.5 5 9.5C7.48528 9.5 9.5 7.48528 9.5 5C9.5 2.51472 7.48528 0.5 5 0.5Z" fill="#72FF7C" stroke="#72FF7C"/>
+</svg>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Products - Solera Life Sciences</title>
+<meta name="description" content="Trusted pharmaceutical solutions for better health"/>
+<link rel="icon" href="assets/icons/favicon.ico"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/home-core.css"/>
+<link rel="stylesheet" href="assets/css/footer.css"/>
+<style>
+/* ------ Base --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#030703;color:#e8f5e1;font-family:'Plus Jakarta Sans','Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:#92de4a44;border-radius:3px}
+a{color:inherit;text-decoration:none}
+
+/* ------ Navbar ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(8,14,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(146,222,74,.1)}
+.navbar.up{background:rgba(8,14,5,.98)}
+.nav-logo{display:flex;align-items:center}
+.nav-logo img{height:56px;object-fit:contain;display:block;filter:drop-shadow(0 0 1px rgba(0,0,0,.8)) drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:#888;font-weight:700;font-size:1.15rem;transition:color .2s;padding-bottom:2px}
+.nav-links a:hover,.nav-links a.active{color:#92de4a}
+.nav-links a.active{border-bottom:2px solid #92de4a}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.ham span{display:block;width:22px;height:2px;background:#ddd;border-radius:2px;transition:all .3s}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,14,5,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(146,222,74,.12);padding:1.2rem 2rem;flex-direction:column;z-index:499}
+.mob-nav.open{display:flex}
+.mob-nav a{color:#bbb;font-weight:600;font-size:1rem;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .2s}
+.mob-nav a:last-child{border-bottom:none}
+.mob-nav a:hover,.mob-nav a.active{color:#92de4a}
+
+/* ------ Video Hero --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.vhero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vhero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.vhero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,14,5,.85) 0%,rgba(8,14,5,.5) 60%,rgba(8,14,5,.75) 100%)}
+.vhero-content{position:relative;z-index:2;padding:0 6%;max-width:780px}
+.vhero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(146,222,74,.12);border:1px solid rgba(146,222,74,.35);color:#92de4a;padding:.3rem 1rem;border-radius:50px;font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1.5rem;animation:fUp .6s ease both}
+.vhero-title{font-size:clamp(2.8rem,6vw,5.8rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:1.2rem;animation:fUp .65s .1s ease both}
+.vhero-title em{color:#92de4a;font-style:normal;display:block}
+.vhero-sub{font-size:clamp(.95rem,1.5vw,1.1rem);color:#aaa;line-height:1.75;max-width:520px;margin-bottom:2rem;animation:fUp .7s .2s ease both}
+.vhero-cta{display:inline-flex;align-items:center;gap:.6rem;background:#92de4a;color:#0a1406;padding:.8rem 2rem;border-radius:50px;font-weight:800;font-size:.9rem;transition:all .2s;animation:fUp .7s .3s ease both;cursor:pointer;border:none}
+.vhero-cta:hover{background:#bff376;transform:translateY(-2px);box-shadow:0 8px 30px rgba(146,222,74,.3)}
+.vhero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:#555;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;animation:fUp .7s .5s ease both}
+.vhero-scroll-line{width:1px;height:40px;background:linear-gradient(#92de4a,transparent);animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.15)}}
+
+/* ------ Stats bar ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.stats-bar{background:rgba(146,222,74,.04);border-top:1px solid rgba(146,222,74,.1);border-bottom:1px solid rgba(146,222,74,.1);padding:1.8rem 6%;display:flex;justify-content:center;gap:5rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-size:2rem;font-weight:900;color:#92de4a;line-height:1}
+.stat-l{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:#555;margin-top:.3rem;font-weight:600}
+
+/* ------ Controls --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.controls{position:sticky;top:64px;z-index:100;background:rgba(8,14,5,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(146,222,74,.08);padding:1.1rem 6%}
+.search-row{display:flex;gap:1rem;align-items:center;margin-bottom:.9rem}
+.search-box{position:relative;flex:1;max-width:420px}
+.search-box i{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:#555;font-size:.85rem;pointer-events:none}
+#srch{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(146,222,74,.18);border-radius:50px;padding:.7rem 1rem .7rem 2.6rem;color:#e8f5e1;font-size:.98rem;outline:none;transition:border .2s}
+#srch:focus{border-color:#92de4a}
+#srch::placeholder{color:#444}
+.res-count{font-size:.9rem;color:#5e7550;margin-left:auto;white-space:nowrap;font-weight:600}
+.cat-strip{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.cat-strip::-webkit-scrollbar{display:none}
+.ctab{flex-shrink:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:#738469;padding:.5rem 1.1rem;border-radius:50px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .22s;white-space:nowrap}
+.ctab:hover{border-color:rgba(146,222,74,.35);color:#ccc}
+.ctab.on{background:rgba(146,222,74,.14);border-color:#92de4a;color:#92de4a}
+
+/* ------ Product grid --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.grid-wrap{padding:2.5rem 6% 6rem}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.5rem}
+.no-res{text-align:center;padding:5rem;color:#444}
+.no-res i{font-size:3rem;display:block;margin-bottom:1rem;color:#222}
+
+/* ------ Card --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.pcard{background:#060c04;border:1px solid rgba(146,222,74,.09);border-radius:20px;overflow:hidden;cursor:pointer;opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease,border-color .2s,box-shadow .2s}
+.pcard.vis{opacity:1;transform:none}
+.pcard:hover{border-color:rgba(146,222,74,.28);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.pcard:hover .pcard-img img{transform:scale(1.06)}
+.pcard-img{height:210px;overflow:hidden;position:relative}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.pcard-img-grad{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(transparent,#060c04)}
+.pcard-body{padding:1.25rem}
+.pcard-cat{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:.28rem .78rem;border-radius:50px;margin-bottom:.8rem}
+.pcard-name{font-size:1.22rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:.35rem}
+.pcard-form{font-size:.84rem;color:#92de4a;font-weight:700;margin-bottom:.65rem;display:flex;align-items:center;gap:.35rem}
+.pcard-ing{font-size:.9rem;color:#90a08a;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.9rem}
+.pcard-footer{display:flex;align-items:center;justify-content:space-between}
+.pcard-mrp{font-size:1rem;font-weight:800;color:#92de4a}
+.pcard-mrp small{font-size:.74rem;font-weight:600;color:#667760;margin-right:2px}
+.pcard-arrow{width:32px;height:32px;border-radius:50%;background:rgba(146,222,74,.1);border:1px solid rgba(146,222,74,.25);display:flex;align-items:center;justify-content:center;color:#92de4a;font-size:.8rem;transition:all .2s}
+.pcard:hover .pcard-arrow{background:rgba(146,222,74,.2);border-color:#92de4a;transform:translateX(3px)}
+
+/* ------ Modal ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);z-index:1000;align-items:center;justify-content:center;padding:1rem}
+.overlay.open{display:flex}
+.modal{background:#060c04;border:1px solid rgba(146,222,74,.18);border-radius:24px;width:100%;max-width:660px;max-height:92vh;overflow-y:auto;animation:mPop .28s ease;position:relative;scroll-behavior:smooth}
+@keyframes mPop{from{opacity:0;transform:scale(.93) translateY(22px)}to{opacity:1;transform:none}}
+.m-top{position:relative;height:260px;overflow:hidden;border-radius:24px 24px 0 0}
+.m-top img{width:100%;height:100%;object-fit:cover}
+.m-top-g{position:absolute;bottom:0;left:0;right:0;height:70%;background:linear-gradient(transparent,#060c04)}
+.m-close{position:absolute;top:1rem;right:1rem;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.m-close:hover{background:rgba(146,222,74,.3)}
+.m-body{padding:1.8rem 2rem 2rem}
+.m-cat{display:inline-flex;align-items:center;gap:.35rem;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:.22rem .75rem;border-radius:50px;margin-bottom:.7rem}
+.m-name{font-size:2.1rem;font-weight:900;color:#fff;line-height:1.1;margin-bottom:.4rem}
+.m-form{display:inline-flex;align-items:center;gap:.4rem;font-size:.9rem;color:#92de4a;font-weight:700;background:rgba(146,222,74,.1);border:1px solid rgba(146,222,74,.25);padding:.3rem .85rem;border-radius:50px;margin-bottom:1.4rem}
+.m-div{border:none;border-top:1px solid rgba(146,222,74,.09);margin:1.1rem 0}
+.m-lbl{font-size:.76rem;text-transform:uppercase;letter-spacing:2px;color:#92de4a;font-weight:800;margin-bottom:.4rem}
+.m-txt{font-size:1rem;color:#b6c2b1;line-height:1.75;margin-bottom:.95rem}
+.m-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;margin-top:1.1rem}
+.m-chip{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:.75rem 1rem}
+.m-chip-l{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#667760;margin-bottom:.3rem}
+.m-chip-v{font-size:.94rem;color:#e8f5e1;font-weight:700}
+
+/* ── Lightbox ──────────────────────────────────────────────────────────────── */
+.m-top{cursor:zoom-in}
+.m-zoom-btn{position:absolute;bottom:.7rem;right:.7rem;z-index:5;width:30px;height:30px;border-radius:7px;background:rgba(0,0,0,.65);border:1px solid rgba(255,255,255,.18);color:#ccc;font-size:.78rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s}
+.m-zoom-btn:hover{background:rgba(146,222,74,.25);border-color:#92de4a;color:#92de4a}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:2000;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:10px;animation:lbIn .2s ease;pointer-events:none;cursor:default}
+@keyframes lbIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.lb-close{position:absolute;top:1rem;right:1rem;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lb-close:hover{background:rgba(146,222,74,.25);border-color:#92de4a;color:#92de4a}
+
+/* ── Modal Gallery ─────────────────────────────────────────────────────────── */
+.m-gallery{display:flex;gap:.45rem;overflow-x:auto;scrollbar-width:none;padding:.65rem 1.2rem;background:rgba(0,0,0,.28)}
+.m-gallery::-webkit-scrollbar{display:none}
+.m-gthumb{width:58px;height:58px;border-radius:8px;overflow:hidden;cursor:pointer;flex-shrink:0;border:2px solid transparent;opacity:.55;transition:opacity .2s,border-color .2s}
+.m-gthumb.on{border-color:#92de4a;opacity:1}
+.m-gthumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ------ Animations ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+@keyframes fUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ------ Mobile --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media(max-width:900px){
+  .nav-links{display:none}.ham{display:flex}
+  .controls{top:4rem}
+  .mob-nav{top:4rem}
+  .stats-bar{gap:2rem}
+  .pgrid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+  .m-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .vhero{height:90vh;min-height:500px}
+  .vhero-content{padding:0 5%}
+  .controls{padding:.35rem 5% .6rem}
+  .grid-wrap{padding:.75rem 5% 4rem}
+  .pgrid{grid-template-columns:1fr 1fr;gap:.75rem}
+  .pcard-img{height:160px}
+  .pcard-body{padding:1rem}
+  .pcard-name{font-size:1.05rem}
+  .m-grid{grid-template-columns:1fr}
+  .m-top{height:200px}
+  .m-body{padding:1.2rem 1.4rem 1.5rem}
+  .m-name{font-size:1.5rem}
+  .footer{flex-direction:column;text-align:center}
+  .stats-bar{padding:.9rem 5%;gap:.8rem}
+  .stat-n{font-size:1.5rem}
+  .stat-l{font-size:.62rem}
+}
+@media(max-width:380px){
+  .pgrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.png" alt="Solera"/>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="index.html#getintouch">Contact</a></li>
+  </ul>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="index.html">Home</a>
+  <a href="index.html#about">About Us</a>
+  <a href="products.html" class="active">Products</a>
+  <a href="index.html#getintouch">Contact</a>
+</div>
+
+<!-- VIDEO HERO -->
+<section class="vhero" id="top">
+  <video autoplay muted loop playsinline preload="auto" poster="assets/images/backgrounds/background_1.jpg">
+    <source src="assets/videos/productslist2.mp4" type="video/mp4"/>
+  </video>
+  <div class="vhero-overlay"></div>
+  <div class="vhero-content">
+    <div class="vhero-badge"><i class="fas fa-flask-vial"></i> Solera Life Sciences</div>
+    <h1 class="vhero-title">Pharmaceutical<em>Excellence</em></h1>
+    <p class="vhero-sub">Every formulation we deliver is backed by rigorous quality standards, trusted by healthcare professionals across India.</p>
+    <button class="vhero-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      <i class="fas fa-pills"></i> Explore Our Products
+    </button>
+  </div>
+  <div class="vhero-scroll">Scroll<div class="vhero-scroll-line"></div></div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">15</div><div class="stat-l">Products</div></div>
+  <div class="stat"><div class="stat-n">9</div><div class="stat-l">Categories</div></div>
+  <div class="stat"><div class="stat-n">ISO</div><div class="stat-l">Certified</div></div>
+  <div class="stat"><div class="stat-n">GMP</div><div class="stat-l">Compliant</div></div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls" id="products">
+  <div class="search-row">
+    <div class="search-box">
+      <i class="fas fa-magnifying-glass"></i>
+      <input id="srch" type="text" placeholder="Search products or ingredients..." autocomplete="off"/>
+    </div>
+    <div class="res-count" id="resCount"></div>
+  </div>
+  <div class="cat-strip" id="catStrip"></div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="pgrid" id="pgrid"></div>
+  <div class="no-res" id="noRes" style="display:none">
+    <i class="fas fa-magnifying-glass"></i>
+    No products match your search.
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose"><i class="fa fa-xmark"></i></button>
+  <img id="lbImg" src="" alt="Product Image"/>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <button class="m-close" id="mClose"><i class="fa fa-xmark"></i></button>
+    <div id="mContent"></div>
+  </div>
+</div>
+
+
+<script>
+const PRODUCTS=[{name:'TURBOSOL',label:'Turbosol Syrup',form:'Syrup',cat:'Anti-Allergy',ingredient:'Ambroxol HCL 15 mg + Guaiphenesin 50 mg + Terbutaline Sulphate 1.25 mg + Menthol 2.5 mg',uses:'Used to treat diseases of the respiratory tract and to relieve cough associated with thickened mucous. Guaifenesin acts as an expectorant thinning mucus. Terbutaline relieves bronchospasm.',pack:'100 ml',mrp:'74',ptr:'50.50',moq:'25 Bottles',batch:'SOSP-136',img:'assets/images/products/turbosol.jpg',cc:{"c": "#8b5cf6", "bg": "rgba(139,92,246,0.12)", "bd": "rgba(139,92,246,0.35)"}},{name:'FOLISOL',label:'Folisol Tablets',form:'Tablets',cat:'Nutritionals',ingredient:'Ferrous Ascorbate 100 mg + Folic Acid 1.5 mg',uses:'Used to treat and prevent iron-deficiency anaemia and folate deficiency. Ferrous ascorbate provides bioavailable iron while folic acid supports red blood cell formation and neural tube development.',pack:'10Ã—10 Tablets',mrp:'990',ptr:'622.54',moq:'5 Boxes',batch:'T-161',img:'assets/images/products/folisol.jpg',cc:{"c": "#f59e0b", "bg": "rgba(245,158,11,0.12)", "bd": "rgba(245,158,11,0.35)"}},{name:'MAXFIRE',label:'Maxfire Softgel Capsules',form:'Softgel Capsules',cat:'Herbal & Wellness',ingredient:'Ashwagandha + Kapikachhu + Gokshura + Salep',uses:'A potent herbal formulation for men\'s wellness and vitality. Supports strength, stamina, and hormonal balance using time-tested Ayurvedic botanicals.',pack:'3Ã—1Ã—10 Softgel Capsules',mrp:'',ptr:'',moq:'',batch:'',img:'assets/images/products/maxfire.jpg',cc:{"c": "#84cc16", "bg": "rgba(132,204,22,0.12)", "bd": "rgba(132,204,22,0.35)"}},{name:'MLA (MONTISOL)',label:'MLA Tablets',form:'Tablets',cat:'Anti-Allergy',ingredient:'Montelukast 10 mg + Levocetirizine 5 mg',uses:'Used for relief of allergic rhinitis and urticaria symptoms. Montelukast blocks leukotrienes that cause swelling in the airways; Levocetirizine blocks histamine responsible for allergy symptoms.',pack:'15Ã—1Ã—4 Tablets',mrp:'587.80',ptr:'401.17',moq:'100 Boxes',batch:'WC-7219',img:'assets/images/products/mla.jpg',cc:{"c": "#8b5cf6", "bg": "rgba(139,92,246,0.12)", "bd": "rgba(139,92,246,0.35)"}},{name:'SOLRAB-LS',label:'Solrab-LS Capsules',form:'Capsules',cat:'Gastro',ingredient:'Rabeprazole Sodium EC + Levosulpiride Sustained Release',uses:'Combines a proton pump inhibitor with a prokinetic agent for comprehensive gastro-oesophageal reflux management. Reduces acid secretion and improves gastric motility simultaneously.',pack:'10Ã—10 Capsules',mrp:'',ptr:'',moq:'',batch:'',img:'assets/images/products/solrab-ls.jpg',cc:{"c": "#22c55e", "bg": "rgba(34,197,94,0.12)", "bd": "rgba(34,197,94,0.35)"}},{name:'SOLRAB-DSR',label:'Solrab-DSR Capsules',form:'Capsules',cat:'Gastro',ingredient:'Rabeprazole 20 mg + Domperidone 30 mg SR',uses:'Used for gastroesophageal reflux disease (GERD), gastric ulcers and dyspepsia. Rabeprazole reduces stomach acid; Domperidone SR prevents nausea and enhances gastric emptying.',pack:'10Ã—10 Capsules',mrp:'790',ptr:'539.17',moq:'5 Boxes',batch:'SNC-16213',img:'assets/images/products/solrab-dsr.jpg',cc:{"c": "#22c55e", "bg": "rgba(34,197,94,0.12)", "bd": "rgba(34,197,94,0.35)"}},{name:'CEFISOL-O',label:'Cefisol-O Tablets',form:'Tablets',cat:'Anti-Bacterial',ingredient:'Cefixime 100 mg + Ofloxacin 100 mg + Lactic Acid Bacillus',uses:'Broad-spectrum antibiotic combination effective against gram-positive and gram-negative bacteria. Used in respiratory, urinary tract, and skin infections. Lactic Acid Bacillus restores gut flora.',pack:'4Ã—15 Tablets',mrp:'1200',ptr:'818.99',moq:'300 Boxes',batch:'WC-7112',img:'assets/images/products/cefiso-o.jpg',cc:{"c": "#06b6d4", "bg": "rgba(6,182,212,0.12)", "bd": "rgba(6,182,212,0.35)"}},{name:'NERVESOL',label:'Nervesol Tablets',form:'Tablets',cat:'Neuro & Pain',ingredient:'Pregabalin + Nortriptyline + Mecobalamin',uses:'Used in neuropathic pain, diabetic neuropathy, fibromyalgia and post-herpetic neuralgia. Pregabalin reduces nerve excitability; Nortriptyline modulates pain signals; Mecobalamin supports nerve regeneration.',pack:'10Ã—10 Tablets',mrp:'',ptr:'',moq:'',batch:'',img:'assets/images/products/nervesol.jpg',cc:{"c": "#f97316", "bg": "rgba(249,115,22,0.12)", "bd": "rgba(249,115,22,0.35)"}},{name:'APISOL-MR',label:'Apisol-MR Tablets',form:'Tablets',cat:'Pain Management',ingredient:'Aceclofenac + Paracetamol + Thiocolchicoside',uses:'A muscle relaxant analgesic combination for musculoskeletal pain, back pain and spasms. Aceclofenac and Paracetamol provide analgesia and antipyresis; Thiocolchicoside relieves muscle spasm.',pack:'10Ã—10 Tablets',mrp:'',ptr:'',moq:'',batch:'',img:'assets/images/products/apisol-mr.jpg',cc:{"c": "#ef4444", "bg": "rgba(239,68,68,0.12)", "bd": "rgba(239,68,68,0.35)"}},{name:'MOXISOL-CV',label:'Moxisol-CV Tablets',form:'Tablets',cat:'Anti-Bacterial',ingredient:'Amoxycillin 500 mg + Clavulanic Acid 125 mg + Lactic Acid Bacillus 60 Million Spores',uses:'A beta-lactam antibiotic with beta-lactamase inhibitor for resistant bacterial infections. Effective in sinusitis, pneumonia, urinary tract infections and skin infections. Probiotic maintains gut health.',pack:'10Ã—1Ã—6 Tablets',mrp:'1500',ptr:'1137.48',moq:'5 Boxes',batch:'CV4841',img:'assets/images/products/moxisol-cv.jpg',cc:{"c": "#06b6d4", "bg": "rgba(6,182,212,0.12)", "bd": "rgba(6,182,212,0.35)"}},{name:'MLA-3 (MONTISOL A)',label:'MLA-3 Tablets',form:'Tablets',cat:'Anti-Allergy',ingredient:'Montelukast 4 mg + Levocetirizine 2.5 mg + Ambroxol 75 mg SR',uses:'Triple-action allergy formula for allergic rhinitis with productive cough. Montelukast and Levocetirizine control allergy symptoms; Ambroxol SR provides extended mucolytic action.',pack:'10Ã—10 Tablets',mrp:'1100',ptr:'834.15',moq:'300 Boxes',batch:'WC-7222',img:'assets/images/products/mla-3.jpg',cc:{"c": "#8b5cf6", "bg": "rgba(139,92,246,0.12)", "bd": "rgba(139,92,246,0.35)"}},{name:'BONSOL-PLUS',label:'Bonsol-Plus Tablets',form:'Tablets',cat:'Dietary Supplement',ingredient:'Rosehip Extract + Collagen Peptide + Chondroitin Sulphate + Sodium Hyaluronate + Devil\'s Claw Extract + Boswellia Extract',uses:'Advanced joint support supplement for cartilage regeneration and joint lubrication. Ideal for osteoarthritis, joint inflammation and age-related cartilage degeneration.',pack:'10Ã—1Ã—10 Tablets',mrp:'',ptr:'',moq:'',batch:'',img:'assets/images/products/bonsol-plus.jpg',cc:{"c": "#14b8a6", "bg": "rgba(20,184,166,0.12)", "bd": "rgba(20,184,166,0.35)"}},{name:'CALSOFT K2-7',label:'Calsoft K2-7 Tablets',form:'Capsules',cat:'Nutritionals',ingredient:'Calcium Citrate Malate 500 mg + Methylcobalamin 750 mcg + Omega-3 + Folic Acid 400 mcg + Vitamin K2-7 45 mcg + Calcitriol 0.25 mcg + Zinc + Copper + Boron',uses:'Complete bone and cardiovascular nutritional support. Vitamin K2-7 directs calcium to bones away from arteries. Omega-3 supports heart health. Calcitriol enhances calcium absorption.',pack:'10Ã—10 Capsules',mrp:'1480',ptr:'1034.07',moq:'5 Boxes',batch:'VPS-16219F',img:'assets/images/products/calsofkt-k2-7.jpg',cc:{"c": "#f59e0b", "bg": "rgba(245,158,11,0.12)", "bd": "rgba(245,158,11,0.35)"}},{name:'BONSOL',label:'Bonsol Tablets',form:'Capsules',cat:'Nutritionals',ingredient:'Cissus Quadrangularis 750 mg + Calcium Citrate Maleate 500 mg + Calcitriol 0.25 mcg + Methylcobalamin 1500 mcg',uses:'Unique bone-healing formulation combining the Ayurvedic herb Cissus Quadrangularis with modern calcium and vitamins. Accelerates fracture healing, improves bone density and supports nerve health.',pack:'10×10 Capsules',mrp:'1475',ptr:'1030.58',moq:'5 Boxes',batch:'SSG-082',img:'assets/images/products/bonsol-tab.jpg',cc:{"c": "#f59e0b", "bg": "rgba(245,158,11,0.12)", "bd": "rgba(245,158,11,0.35)"}},{name:'WIBE WIPES',label:'Accel INTERVention Disinfectant Wipes',form:'Disinfectant Wipes',cat:'Surgical & Disinfection',ingredient:'Hydrogen Peroxide 0.5% w/w (AHP® Technology)',uses:'Hospital-grade surface disinfection with 1-minute kill time for MRSA, TB, and Norovirus. One-step cleaning and disinfection for Operating Rooms, ICUs, NICUs, Dental Surgery, and Labs. Compatible with stainless steel, vinyl, glass, and sensitive electronics. Imported from Canada.',pack:'160 Wipes per Tub',mrp:'2000',ptr:'',moq:'',batch:'INT-160-W',img:'assets/images/products/wibe-wipes.jpg',gallery:['assets/images/products/wibe-wipes-details.webp','assets/images/products/wibe-wipes-2.jpg','assets/images/products/wibe-wipes-3.jpg','assets/images/products/wibe-wipes-4.jpg','assets/images/products/wibe-wipes-5.jpg'],cc:{"c": "#0ea5e9", "bg": "rgba(14,165,233,0.12)", "bd": "rgba(14,165,233,0.35)"}}];
+const CATS=["All", "Anti-Allergy", "Anti-Bacterial", "Dietary Supplement", "Gastro", "Herbal & Wellness", "Neuro & Pain", "Nutritionals", "Pain Management", "Surgical & Disinfection"];
+
+let activeCat = 'All', q = '';
+
+/* Navbar */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('up', scrollY > 30);
+}, {passive:true});
+
+/* Hamburger */
+const ham = document.getElementById('ham');
+const mobNav = document.getElementById('mobNav');
+ham.addEventListener('click', e => { e.stopPropagation(); ham.classList.toggle('open'); mobNav.classList.toggle('open'); });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mobNav.contains(e.target)) { ham.classList.remove('open'); mobNav.classList.remove('open'); } });
+mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mobNav.classList.remove('open'); }));
+
+/* Category tabs */
+const strip = document.getElementById('catStrip');
+CATS.forEach(cat => {
+  const b = document.createElement('button');
+  b.className = 'ctab' + (cat === 'All' ? ' on' : '');
+  const n = cat === 'All' ? PRODUCTS.length : PRODUCTS.filter(p => p.cat === cat).length;
+  b.textContent = cat + ' (' + n + ')';
+  b.onclick = () => { activeCat = cat; strip.querySelectorAll('.ctab').forEach(x => x.classList.remove('on')); b.classList.add('on'); render(); };
+  strip.appendChild(b);
+});
+
+/* Search */
+let st;
+document.getElementById('srch').addEventListener('input', e => {
+  clearTimeout(st); st = setTimeout(() => { q = e.target.value.trim().toLowerCase(); render(); }, 150);
+});
+
+function filtered() {
+  return PRODUCTS.filter(p => {
+    const catOk = activeCat === 'All' || p.cat === activeCat;
+    const qOk = !q || p.name.toLowerCase().includes(q) || p.ingredient.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q) || p.form.toLowerCase().includes(q);
+    return catOk && qOk;
+  });
+}
+
+function e(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function render() {
+  const grid = document.getElementById('pgrid');
+  const noR = document.getElementById('noRes');
+  const list = filtered();
+  document.getElementById('resCount').textContent = list.length + ' product' + (list.length !== 1 ? 's' : '');
+  grid.innerHTML = '';
+  if (!list.length) { noR.style.display = 'block'; return; }
+  noR.style.display = 'none';
+
+  list.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'pcard';
+    card.style.transitionDelay = (Math.min(i % 8, 7) * 55) + 'ms';
+    const mrpHtml = p.mrp ? `<div class="pcard-mrp"><small>MRP</small>&#8377;${e(p.mrp)}</div>` : '<div></div>';
+    card.innerHTML = `
+      <div class="pcard-img"><img src="${p.img}" alt="${e(p.name)}" loading="lazy"/><div class="pcard-img-grad"></div></div>
+      <div class="pcard-body">
+        <span class="pcard-cat" style="background:${p.cc.bg};border:1px solid ${p.cc.bd};color:${p.cc.c}"><i class="fas fa-pills"></i>${e(p.cat)}</span>
+        <div class="pcard-name">${e(p.label)}</div>
+        <div class="pcard-form"><i class="fas fa-capsules"></i>${e(p.form)}</div>
+        <div class="pcard-ing">${e(p.ingredient)}</div>
+        <div class="pcard-footer">${mrpHtml}<div class="pcard-arrow"><i class="fas fa-arrow-right"></i></div></div>
+      </div>`;
+    card.addEventListener('click', () => openModal(p));
+    grid.appendChild(card);
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('vis'); obs.unobserve(en.target); } });
+  }, {threshold: 0.06});
+  grid.querySelectorAll('.pcard').forEach(c => obs.observe(c));
+}
+
+function openModal(p) {
+  const chips = [
+    p.pack   ? `<div class="m-chip"><div class="m-chip-l">Pack Size</div><div class="m-chip-v">${e(p.pack)}</div></div>` : '',
+    p.mrp    ? `<div class="m-chip"><div class="m-chip-l">MRP</div><div class="m-chip-v">&#8377;${e(p.mrp)}</div></div>` : '',
+    p.ptr    ? `<div class="m-chip"><div class="m-chip-l">PTR</div><div class="m-chip-v">&#8377;${e(p.ptr)}</div></div>` : '',
+    p.moq    ? `<div class="m-chip"><div class="m-chip-l">MOQ</div><div class="m-chip-v">${e(p.moq)}</div></div>` : '',
+    p.batch  ? `<div class="m-chip"><div class="m-chip-l">Batch No.</div><div class="m-chip-v">${e(p.batch)}</div></div>` : '',
+  ].filter(Boolean).join('');
+
+  const galleryHtml = p.gallery ? `<div class="m-gallery">${[p.img,...p.gallery].map((s,i)=>`<div class="m-gthumb${i===0?' on':''}" data-src="${s}"><img src="${s}" loading="lazy"/></div>`).join('')}</div>` : '';
+  document.getElementById('mContent').innerHTML = `
+    <div class="m-top"><img src="${p.img}" alt="${e(p.name)}" id="mMainImg"/><div class="m-top-g"></div><button class="m-zoom-btn" id="mZoom" title="View full image"><i class="fas fa-expand"></i></button></div>
+    ${galleryHtml}
+    <div class="m-body">
+      <span class="m-cat" style="background:${p.cc.bg};border:1px solid ${p.cc.bd};color:${p.cc.c}"><i class="fas fa-pills"></i>${e(p.cat)}</span>
+      <div class="m-name">${e(p.label)}</div>
+      <span class="m-form"><i class="fas fa-capsules"></i>${e(p.form)}</span>
+      <hr class="m-div"/>
+      <div class="m-lbl">Active Ingredient / Composition</div>
+      <div class="m-txt">${e(p.ingredient)}</div>
+      <hr class="m-div"/>
+      <div class="m-lbl">Uses &amp; Indications</div>
+      <div class="m-txt">${e(p.uses)}</div>
+      ${chips ? `<hr class="m-div"/><div class="m-grid">${chips}</div>` : ''}
+    </div>`;
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('modal').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('mClose').onclick = closeModal;
+document.getElementById('overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (document.getElementById('lb').classList.contains('open')) { document.getElementById('lb').classList.remove('open'); } else { closeModal(); } } });
+function closeModal() { document.getElementById('overlay').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('modal').addEventListener('click', e => {
+  const thumb = e.target.closest('.m-gthumb');
+  if (thumb) {
+    const mi = document.getElementById('mMainImg');
+    if (mi) mi.src = thumb.dataset.src;
+    document.querySelectorAll('#modal .m-gthumb').forEach(t => t.classList.remove('on'));
+    thumb.classList.add('on');
+    return;
+  }
+  if (e.target.id === 'mMainImg' || e.target.closest('#mZoom')) {
+    const mi = document.getElementById('mMainImg');
+    if (mi) { document.getElementById('lbImg').src = mi.src; document.getElementById('lb').classList.add('open'); }
+  }
+});
+document.getElementById('lb').addEventListener('click', e => {
+  if (e.target === e.currentTarget || e.target.closest('#lbClose')) document.getElementById('lb').classList.remove('open');
+});
+
+render();
+</script>
+
+<footer class="sl-footer">
+  <div class="sl-footer__top">
+    <div class="sl-footer__brand">
+      <img src="assets/images/logo.png" alt="Solera Life Sciences" class="sl-footer__brand-logo"/>
+      <p class="sl-footer__tagline">Advancing healthcare through innovation and quality — producing trusted medicines that improve lives globally.</p>
+      <div class="sl-footer__social">
+        <a href="https://x.com/soleralife?lang=bg" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/company/solera-life-sciences-private-limited" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="sl-footer__col">
+      <div class="sl-footer__col-title">Company</div>
+      <ul class="sl-footer__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#getintouch">Contact</a></li>
+      </ul>
+    </div>
+    <div class="sl-footer__col">
+      <div class="sl-footer__col-title">Products</div>
+      <ul class="sl-footer__links">
+        <li><a href="products.html">Prescription Medicines</a></li>
+        <li><a href="products.html">Surgical Products</a></li>
+        <li><a href="products.html">OTC Products</a></li>
+        <li><a href="products.html">View All</a></li>
+      </ul>
+    </div>
+    <div class="sl-footer__col">
+      <div class="sl-footer__col-title">Contact Us</div>
+      <div class="sl-footer__contact-item"><i class="fas fa-map-marker-alt"></i><span>124, Uday Park, New Delhi, Delhi, India 110049</span></div>
+      <div class="sl-footer__contact-item"><i class="fas fa-phone"></i><span>+91-999999999</span></div>
+      <div class="sl-footer__contact-item"><i class="fas fa-envelope"></i><span>info@soleralife.com</span></div>
+    </div>
+  </div>
+  <hr class="sl-footer__divider"/>
+  <div class="sl-footer__bottom">
+    <p class="sl-footer__copy">&copy; 2025 <span>Solera Life Sciences Pvt. Ltd.</span> All rights reserved.</p>
+    <nav class="sl-footer__legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Quality Policy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+

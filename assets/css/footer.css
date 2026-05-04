@@ -1,0 +1,183 @@
+/* ═══════════════════════════════════════════════════════════════
+   SOLERA LIFE SCIENCES — PREMIUM FOOTER
+   External stylesheet: assets/css/footer.css
+═══════════════════════════════════════════════════════════════ */
+
+.sl-footer {
+  background: #060c04;
+  border-top: 1px solid rgba(146, 222, 74, 0.12);
+  font-family: inherit;
+  color: #8a9e84;
+}
+
+/* ── Top band ─────────────────────────────────────────────────── */
+.sl-footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 5% 3rem;
+}
+
+/* ── Brand column ─────────────────────────────────────────────── */
+.sl-footer__brand-logo {
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 0 10px rgba(146, 222, 74, 0.2));
+}
+
+.sl-footer__tagline {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #5a6e54;
+  max-width: 240px;
+  margin-bottom: 1.6rem;
+}
+
+.sl-footer__social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sl-footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(146, 222, 74, 0.07);
+  border: 1px solid rgba(146, 222, 74, 0.15);
+  color: #7a9470;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.sl-footer__social a:hover {
+  background: rgba(146, 222, 74, 0.15);
+  border-color: rgba(146, 222, 74, 0.4);
+  color: #92de4a;
+  transform: translateY(-2px);
+}
+
+/* ── Nav columns ──────────────────────────────────────────────── */
+.sl-footer__col-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #92de4a;
+  margin-bottom: 1.2rem;
+}
+
+.sl-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sl-footer__links a {
+  color: #6a7e64;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s, padding-left 0.2s;
+  display: inline-block;
+}
+
+.sl-footer__links a:hover {
+  color: #b8e888;
+  padding-left: 4px;
+}
+
+/* ── Contact column ───────────────────────────────────────────── */
+.sl-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.87rem;
+  color: #6a7e64;
+  line-height: 1.6;
+}
+
+.sl-footer__contact-item i {
+  color: #92de4a;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+.sl-footer__divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Bottom bar ───────────────────────────────────────────────── */
+.sl-footer__bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.sl-footer__copy {
+  font-size: 0.8rem;
+  color: #40504a;
+}
+
+.sl-footer__copy span {
+  color: #92de4a;
+}
+
+.sl-footer__legal {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.sl-footer__legal a {
+  font-size: 0.78rem;
+  color: #3d4d3a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sl-footer__legal a:hover {
+  color: #92de4a;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .sl-footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .sl-footer__top {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 6% 2rem;
+  }
+  .sl-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sl-footer__legal {
+    justify-content: center;
+  }
+}
